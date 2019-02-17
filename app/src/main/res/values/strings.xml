@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TODO APP</string>
+    <string name="email">Correo electrónico</string>
+    <string name="name">Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="registrarme">¡Registrarme!</string>
+    <string name="login">Iniciar sesión</string>
+</resources>
