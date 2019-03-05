@@ -1,6 +1,7 @@
 package com.geermank.todoapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity implements OnClickListener{
+
+
+    /**
+     * Nombre del archivo donde almacenaremos la info del usuario en caso
+     * de que desee que recordemos sus credenciales
+     *
+     * El trabajo de sharedPreferences podríamos delegarlo en una clase auxiliar
+     *
+     */
+    public static final String SHARED_PREFS_NAME = "PREFS";
+
+    /**
+     * Usamos estas constantes para acceder al archivo de SharedPreferences y
+     * ver si habíamos guardado información sobre el usuario. Si tenemos algo
+     * guardado, iniciamos sesión directamente
+     */
+    public static final String KEY_SHARED_PREFS_EMAIL = "KEY_SHARED_PREFS_EMAIL";
+    public static final String KEY_SHARED_PREFS_PASSWORD = "KEY_SHARED_PREFS_PASSWORD";
 
     /**
      * Usados como key en los extra del intent a pasar al MainActivity
@@ -41,6 +60,34 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
 
         btnRegister.setOnClickListener(this);
         tvLogin.setOnClickListener(this);
+
+        verifyUserSavedCredentials();
+
+    }
+
+    /**
+     * Verificamos si el usuario guardó sus credenciales la última vez
+     * que inició sesión. Si lo hizo, lo dirigimos directamente a la pantalla
+     * principal
+     */
+    private void verifyUserSavedCredentials() {
+
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS_NAME,MODE_PRIVATE);
+
+        //aca podríamos usar contains también, para verificar si el archivo posee
+        //algo en las claves que le pasamos por parámetro
+        String email = prefs.getString(KEY_SHARED_PREFS_EMAIL,null);
+        String password = prefs.getString(KEY_SHARED_PREFS_PASSWORD,null);
+
+        if (email == null && password == null){
+            return; //no hacemos nada, quiere decir que el usr no guardó sus credenciales
+        }
+
+        //si guardó sus credenciales, abrimos directamente el MainActivity
+        //podemos utilizar el método registerUser, ya que simplemente crea un intent donde
+        //pasa algunos valores como extras, y abre esta pantalla. Para efectos prácticos,
+        //no le pasamos nada en el nombre.
+        registerUser("",email,password);
 
     }
 
@@ -135,11 +182,13 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         mainIntent.putExtra(EXTRA_EMAIL,email);
 
         startActivity(mainIntent);
+        finish();
     }
 
     private void openLoginActivity(){
         Intent loginIntent = new Intent(this,LoginActivity.class);
         startActivity(loginIntent);
+        finish();
     }
 
 }

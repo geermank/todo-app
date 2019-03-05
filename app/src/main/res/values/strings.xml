@@ -5,4 +5,6 @@
     <string name="password">Contraseña</string>
     <string name="registrarme">¡Registrarme!</string>
     <string name="login">Iniciar sesión</string>
+    <string name="remember_user">Recordar usuario</string>
+    <string name="action_add_task">Crear tarea</string>
 </resources>

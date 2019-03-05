@@ -3,48 +3,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LoginActivity">
 
-    <TextView
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_title"
-        android:text="@string/app_name"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:padding="16dp"
-        android:gravity="center"
-        android:background="@color/colorPrimary"/>
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:theme="@style/Toolbar"
+        app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"/>
 
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_email"
-        android:hint="@string/email"
-        android:layout_below="@+id/tv_title"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_below="@+id/toolbar">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_password"
-        android:hint="@string/password"
-        android:layout_below="@+id/et_email"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_login"
-        android:text="@string/login"
-        android:layout_below="@+id/et_password"
-        android:layout_marginTop="24dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_email"
+                android:hint="@string/email"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_password"
+                android:hint="@string/password"
+                android:layout_below="@+id/et_email"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cb_remember"
+                android:text="@string/remember_user"
+                android:layout_below="@+id/et_password"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_login"
+                android:text="@string/login"
+                android:layout_below="@+id/cb_remember"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
     <TextView
         android:layout_width="match_parent"
