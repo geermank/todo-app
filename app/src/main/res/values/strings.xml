@@ -7,4 +7,9 @@
     <string name="login">Iniciar sesión</string>
     <string name="remember_user">Recordar usuario</string>
     <string name="action_add_task">Crear tarea</string>
+    <string name="task_title">Título</string>
+    <string name="task_priority">Prioridad</string>
+    <string name="verify_input">Verifica los datos ingresados</string>
+    <string name="task_saved">Tarea guardada!</string>
+    <string name="add_task">Agregar una tarea</string>
 </resources>

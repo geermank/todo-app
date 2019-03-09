@@ -1,7 +1,12 @@
 package com.geermank.todoapp.Models;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity(tableName = "tasks")
 public class Task {
 
+    @PrimaryKey(autoGenerate = true)
     private long id;
     private String title;
     private String priority;
@@ -9,8 +14,7 @@ public class Task {
     private boolean finished;
     private boolean expired;
 
-    public Task(long id, String title, String priority, long expirationDate, boolean finished, boolean expired) {
-        this.id = id;
+    public Task(String title, String priority, long expirationDate, boolean finished, boolean expired) {
         this.title = title;
         this.priority = priority;
         this.expirationDate = expirationDate;
@@ -65,4 +69,5 @@ public class Task {
     public void setExpired(boolean expired) {
         this.expired = expired;
     }
+
 }

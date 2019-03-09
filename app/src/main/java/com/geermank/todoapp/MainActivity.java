@@ -1,5 +1,6 @@
 package com.geermank.todoapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.geermank.todoapp.Adapters.TasksAdapter;
+import com.geermank.todoapp.Database.AppDatabase;
 import com.geermank.todoapp.Models.Task;
 
 import java.util.ArrayList;
@@ -17,6 +19,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<Task> tasks;
+
+    private TasksAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +41,15 @@ public class MainActivity extends AppCompatActivity {
 
         ListView lvTasks = findViewById(R.id.lv_tasks);
 
-        TasksAdapter adapter = new TasksAdapter(tasks);
+        adapter = new TasksAdapter(tasks);
 
         lvTasks.setAdapter(adapter);
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        completeTasksList();
     }
 
     @Override
@@ -54,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         int selectedItemId = item.getItemId();
         if (selectedItemId == R.id.action_add_task){
-            //TODO abrir nueva pantalla para generar tareas
-            Toast.makeText(this, "Creando nueva tarea...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,AddTaskActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -63,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void completeTasksList() {
 
+        /*
         Task t = new Task(0,"Pasear al perro","Media",23123,false,false);
         tasks.add(t);
 
@@ -92,7 +101,27 @@ public class MainActivity extends AppCompatActivity {
 
         tasks.add(t4);
 
-        tasks.add(t5);
+        tasks.add(t5);*/
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                tasks.clear();
+
+                AppDatabase db = AppDatabase.getInstance(MainActivity.this);
+                tasks.addAll(db.getTasksDao().getAllTasks());
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
+            }
+        }).start();
+
 
     }
 }
