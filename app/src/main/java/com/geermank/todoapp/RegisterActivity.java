@@ -18,7 +18,8 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
      * Nombre del archivo donde almacenaremos la info del usuario en caso
      * de que desee que recordemos sus credenciales
      *
-     * El trabajo de sharedPreferences podríamos delegarlo en una clase auxiliar
+     * El trabajo de sharedPreferences podríamos delegarlo en una clase auxiliar, a modo
+     * de ejemplo, declaramos todas las constantes en LoginActivity
      *
      */
     public static final String SHARED_PREFS_NAME = "PREFS";

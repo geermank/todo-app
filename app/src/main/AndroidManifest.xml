@@ -13,14 +13,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".AddTaskActivity"></activity>
+            android:theme="@style/AppThemeNoActionBar"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".AddTaskActivity"/>
     </application>
 
 </manifest>
