@@ -9,4 +9,5 @@ El objetivo de la aplicación es almacenar tareas que el usuario quiere recordar
 en su dispositivo, y que las mismas estén disponibles incluso luego de cerrar la aplicación.
 
 Link a la página del instituto: https://www.educacionit.com/
+
 Link al curso: https://www.educacionit.com/curso-de-programacion-en-android
