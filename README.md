@@ -8,6 +8,9 @@ en donde se utilizan todos los temas abarcados en el mismo. La idea es que el al
 El objetivo de la aplicación es almacenar tareas que el usuario quiere recordar u organizar
 en su dispositivo, y que las mismas estén disponibles incluso luego de cerrar la aplicación.
 
+
+------------------------------------
+
 Link a la página del instituto: https://www.educacionit.com/
 
 Link al curso: https://www.educacionit.com/curso-de-programacion-en-android
