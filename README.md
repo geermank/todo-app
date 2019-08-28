@@ -8,6 +8,13 @@ en donde se utilizan todos los temas abarcados en el mismo. La idea es que el al
 El objetivo de la aplicación es almacenar tareas que el usuario quiere recordar u organizar
 en su dispositivo, y que las mismas estén disponibles incluso luego de cerrar la aplicación.
 
+TEMARIO SIMPLIFICADO:
+- Diseños con LinearLayout
+- Diseños con RelativeLayout
+- Ciclo de vida de una Activity
+- ListView
+- SharedPreferences
+- SQLite utilizando Room
 
 ------------------------------------
 
